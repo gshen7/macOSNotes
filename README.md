@@ -1,9 +1,10 @@
 # Documenting various things for building macOS apps using Swift
 * short quick form documentation in a way that makes sense to me - trying to be as heavy with code samples as _reasonable_ for me
 * feel free to contribute in a way that is _reasonable_ to you
-* some [official documentation](https://developer.apple.com/documentation/applicationservices) exists but I've had difficulty finding more, so most of how I learned was through searches on GitHub of the things listed in the official documentation
 
 ## Accessibility API
+* some [official documentation](https://developer.apple.com/documentation/applicationservices) exists but I've had difficulty finding more, so most of how I learned was through searches on GitHub of the things listed in the official documentation
+
 #### Objects
 ##### AXUIElement
 * everything is an `AXUIElement`
