@@ -144,6 +144,10 @@ let nsEvent = NSEvent.init(cgEvent: event)!
 * type: Boolean
 * Value: YES
 
+## Delegates
+### Accessing app delegate elsewhere
+* with `NSApplication.shared.delegate`
+
 ## Sandbox
 * some things require you to not be sandboxing
 * remove by clicking the project in project navigator, then the signing and capabilities tab, then clicking the x in the sandbox section
