@@ -137,6 +137,13 @@ let nsEvent = NSEvent.init(cgEvent: event)!
 * access using .#
 * create with ()
 
+## Visual Elements
+### Getting rid of the dock icon
+* add a row in info.plist
+* key: Applicaiton is agent (UIElement)
+* type: Boolean
+* Value: YES
+
 ## Sandbox
 * some things require you to not be sandboxing
 * remove by clicking the project in project navigator, then the signing and capabilities tab, then clicking the x in the sandbox section
