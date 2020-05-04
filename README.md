@@ -41,8 +41,8 @@
 * returns `AXUIElement`
 * gets UI element representing entire system
 
-##### AXUIElementCopyAttributeNames(element, pointer)
-* puts all the attribute names available for an `AXUIElement` in the variable at pointer
+##### AXUIElementCopyAttributeNames(element, pointer)/AXUIElementCopyActionNames(element, pointer)
+* puts all the attribute/action names available for an `AXUIElement` in the variable at pointer
 ```
 var names:CFArray? = nil
 AXUIElementCopyAttributeNames(element, &names)
@@ -78,6 +78,18 @@ var children = (childrenArray as! Array<AXUIElement>)
 AXUIElementPerformAction(element, kAXPressAction as CFString)
 ```
 
+##### AXUIElementIsAttributeSettable(element, attribute, pointer)
+* checks if an attribute is settable (ex. focused)
+```
+var att: DarwinBoolean = false
+AXUIElementIsAttributeSettable(font, kAXFocusedAttribute as CFString, &(att))
+```
+
+##### AXUIElementSetAttributeValue(element, attribute, value)
+* sets an attribute, although the value type is sometimes annoying (ex. focused)
+```
+AXUIElementSetAttributeValue(element, kAXFocusedAttribute as CFString, kCFBooleanTrue as CFTypeRef)
+```
 
 ## Global event monitoring
 ### NSEvent approach
@@ -115,6 +127,15 @@ CFRunLoopRun()
 ```
 * in the callback function, `return nil` stops propagation, while `return Unmanaged.passRetained(event)` propagates it
 
+### CGEvent to NSEvent
+```
+let nsEvent = NSEvent.init(cgEvent: event)!
+```
+
+## Swift Data Types
+### Tuples
+* access using .#
+* create with ()
 
 ## Sandbox
 * some things require you to not be sandboxing
