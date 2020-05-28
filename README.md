@@ -5,10 +5,13 @@
 ## Accessibility API
 * some [official documentation](https://developer.apple.com/documentation/applicationservices) exists but I've had difficulty finding more, so most of how I learned was through searches on GitHub of the things listed in the official documentation
 
+### Accessibility Inspector Tool
+* hierarchy of UI elements can be explored using the [accessibility inspector tool in xcode](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)
+* for inspecting menus, open the menu using the accessibility inspector, then refresh using command R, or open the menu, then use option space to toggle the inspector selector
+
 #### Objects
 ##### AXUIElement
 * everything is an `AXUIElement`
-* hierarchy can be explored using the [accessibility inspector tool in xcode](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)
 
 ###### Useful Attributes
 **kAXWindowsAttribute**
@@ -53,6 +56,14 @@ AXUIElementCopyAttributeNames(element, &names)
 ```
 var focused: CFTypeRef?
 AXUIElementCopyAttributeValue(systemWide, kAXFocusedUIElementAttribute as CFString, &focused)
+```
+* for values that are certain types (ex. `kAXPositionAttribute` is a `CGPoint`), need to use `AXValueGetValue`
+```
+var positionRef: AnyObject?
+AXUIElementCopyAttributeValue(focusedWindow!, kAXPositionAttribute as CFString, &positionRef)
+
+var position = CGPoint.zero
+AXValueGetValue(positionRef as! AXValue, .cgPoint, &position)
 ```
 
 ##### AXUIElementGetPid(element, pointer)
