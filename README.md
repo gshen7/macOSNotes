@@ -162,3 +162,9 @@ let nsEvent = NSEvent.init(cgEvent: event)!
 ## Sandbox
 * some things require you to not be sandboxing
 * remove by clicking the project in project navigator, then the signing and capabilities tab, then clicking the x in the sandbox section
+
+---
+
+If you found this helpful, and want to support me, consider buying me a coffee!
+
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U7U81Q15P)
