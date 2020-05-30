@@ -165,6 +165,6 @@ let nsEvent = NSEvent.init(cgEvent: event)!
 
 ---
 
-If you found this helpful, and want to support me, consider buying me a coffee!
+If you found this helpful and want to support me, consider buying me a coffee!
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U7U81Q15P)
