@@ -1,9 +1,11 @@
-# Documenting various things for building macOS apps using Swift
+# Documenting various things for building macOS apps
 * short quick form documentation in a way that makes sense to me - trying to be as heavy with code samples as _reasonable_ for me
 * feel free to contribute in a way that is _reasonable_ to you
 
+# Swift
 ## Accessibility API
 * some [official documentation](https://developer.apple.com/documentation/applicationservices) exists but I've had difficulty finding more, so most of how I learned was through searches on GitHub of the things listed in the official documentation
+* note that this API exists in objective c as well but the notes below provide syntax in swift
 
 ### Accessibility Inspector Tool
 * hierarchy of UI elements can be explored using the [accessibility inspector tool in xcode](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)
@@ -159,6 +161,36 @@ let nsEvent = NSEvent.init(cgEvent: event)!
 ### Accessing app delegate elsewhere
 * with `NSApplication.shared.delegate`
 
+# objective c
+## Syntax for functions
+### Declaring and calling functions with multiple arguments
+* argVariableName is what is used within the function
+* argName is what is used when calling the function 
+* function declaration
+```
+- (void)funcName:(argType)argVariableName argName:(argType)argVariableName
+{
+```
+* function call
+```
+[self.funcName:argValue argName:argValue];
+```
+
+### Calling a function from a parent view controller
+```
+if (self.delegate && [self.delegate respondsToSelector:@selector(funcInParent:)]) {
+    [self.delegate funcAtParent:argValueIfNeeded];
+}
+```
+
+## NSDate
+### Getting and using components
+```
+NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
+// usage: components.year, components.month, components.day
+```
+
+# where things are in xcode
 ## Sandbox
 * some things require you to not be sandboxing
 * remove by clicking the project in project navigator, then the signing and capabilities tab, then clicking the x in the sandbox section
