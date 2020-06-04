@@ -104,6 +104,12 @@ AXUIElementIsAttributeSettable(font, kAXFocusedAttribute as CFString, &(att))
 AXUIElementSetAttributeValue(element, kAXFocusedAttribute as CFString, kCFBooleanTrue as CFTypeRef)
 ```
 
+##### AXUIElementSetMessagingTimeout(element, secondsAsFloat)
+* used this so main thread isn't blocked whenever trying to do something with accessibility api
+* i think no matter what the function will eventually occur, this just limits how long you wait for it to return
+* setting a timeout of 0.0 didn't seem to keep it from being blocked but 0.01 was sufficient
+* i didnt use this every time i used the accessibility api; i only used it for performing certain actions that were known to be problematic
+
 ## Global event monitoring
 ### NSEvent approach
 #### Functions
