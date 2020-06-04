@@ -197,4 +197,4 @@ NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalend
 
 ---
 
-If you found this helpful and want to support me, consider sponsoring me via [Venmo](https://venmo.com/garyshen)/[Paypal](paypal.me/GaryShen)
+If you found this helpful and want to support me, consider sponsoring me via (Venmo)[https://venmo.com/garyshen]/(Paypal)[paypal.me/GaryShen]
